@@ -3,7 +3,7 @@ require "tmpdir"
 require 'hatchet/tasks'
 ENV["BUILDPACK_LOG_FILE"] ||= "tmp/buildpack.log"
 
-S3_BUCKET_NAME  = "heroku-buildpack-ruby"
+S3_BUCKET_NAME  = "heroku-buildpack-bundler2"
 VENDOR_URL      = "https://s3.amazonaws.com/#{S3_BUCKET_NAME}"
 
 def s3_tools_dir
@@ -11,7 +11,7 @@ def s3_tools_dir
 end
 
 def s3_upload(tmpdir, name)
-  sh("#{s3_tools_dir}/s3 put #{S3_BUCKET_NAME} #{name}.tgz #{tmpdir}/#{name}.tgz")
+  sh("aws s3 cp #{tmpdir}/#{name}.tgz s3://#{S3_BUCKET_NAME}/#{name}.tgz")
 end
 
 def vendor_plugin(git_url, branch = nil)
