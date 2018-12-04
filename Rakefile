@@ -4,7 +4,7 @@ require 'hatchet/tasks'
 ENV["BUILDPACK_LOG_FILE"] ||= "tmp/buildpack.log"
 
 S3_BUCKET_NAME  = "heroku-buildpack-bundler2"
-VENDOR_URL      = "https://s3.amazonaws.com/#{S3_BUCKET_NAME}"
+VENDOR_URL      = "https://heroku-bundler.s3.amazonaws.com/"
 
 def s3_tools_dir
   File.expand_path("../support/s3", __FILE__)
