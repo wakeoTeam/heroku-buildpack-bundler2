@@ -3,7 +3,7 @@ require "tmpdir"
 require 'hatchet/tasks'
 ENV["BUILDPACK_LOG_FILE"] ||= "tmp/buildpack.log"
 
-S3_BUCKET_NAME  = "heroku-buildpack-bundler2"
+S3_BUCKET_NAME  = "heroku-bundler"
 VENDOR_URL      = "https://heroku-bundler.s3.amazonaws.com/"
 
 def s3_tools_dir
